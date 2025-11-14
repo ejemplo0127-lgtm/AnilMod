@@ -2,7 +2,68 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	 // --------------------------------------------------------
   // 🌿 Nueva habilidad personalizada: Piel Herbácea
   // --------------------------------------------------------
-  coleoptero: {
+    realeza: {
+        name: "Realeza",
+        shortDesc: "El usuario obtiene STAB con todos los tipos (50% de potencia a todos sus movimientos).",
+        desc: "El usuario recibe un bono del 50% al poder de todos sus ataques, incluso si no coinciden con su tipo. No se acumula con STAB normal.",
+        
+        onBasePower(basePower, attacker, defender, move) {
+            // Si ya tiene STAB real, no aplicar el bonus
+            if (attacker.hasType(move.type)) return;
+
+            // De lo contrario, dar un STAB universal del 50%
+            return this.chainModify(1.5);
+        },
+    },
+ 	silvano: {
+        name: "Silvano",
+        shortDesc: "Aumenta el daño de los ataques del usuario un 30% bajo Campo de Hierba.",
+        desc: "Si el usuario está en Grassy Terrain, sus ataques hacen 1.3× daño.",
+
+        onBasePower(basePower, attacker, defender, move) {
+            // Solo afecta si el Pokémon que ataca tiene esta habilidad
+            if (attacker.ability !== 'silvano') return;
+
+            // Verifica que el campo activo sea Grassy Terrain
+            if (attacker.field.isTerrain('grassyterrain')) {
+                return this.chainModify(1.3); // +30% de daño
+            }
+        },
+    },
+	 parentalbond: {
+        inherit: true,
+        name: "Parental Bond",
+        shortDesc: "Golpea dos veces; el segundo golpe hace el 50%. El primer golpe conserva efectos.",
+
+        onPrepareHit(source, target, move) {
+            if (move.multihit || move.flags['charge'] || move.isZ || move.isMax) return;
+
+            // Fuerza dos golpes siempre
+            move.multihit = 2;
+
+            // NO quitamos efectos aquí
+            // para que el primer golpe siga funcionando normal
+
+            this.add('-ability', source, 'Parental Bond');
+        },
+
+        onHit(target, source, move) {
+            // Si es el primer golpe (hit = 1), no hacemos nada → mantiene boosts
+            if (move.hit === 1) return;
+
+            // Si es el segundo golpe → quitar efectos secundarios y propios
+            move.secondaries = null;
+            move.self = null;
+            move.selfBoost = null;
+        },
+
+        onModifyDamage(damage, source, target, move) {
+            if (move.hit > 1) {
+                return this.chainModify(0.5);
+            }
+        },
+    },
+  	coleoptero: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [

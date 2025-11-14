@@ -1,4 +1,8 @@
 export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
+    goodrahisui: {
+        inherit: true,
+        baseStats: {hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80},
+    },
     caterpie: {
         inherit: true,
         baseStats: {hp: 45, atk: 40, def: 35, spa: 45, spd: 20, spe: 20},

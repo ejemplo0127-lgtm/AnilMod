@@ -5699,7 +5699,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	skitty: {
 		num: 300,
 		name: "Skitty",
-		types: ["Normal"],
+		types: ["Normal","Fairy"],
 		genderRatio: { M: 0.25, F: 0.75 },
 		baseStats: { hp: 50, atk: 45, def: 45, spa: 35, spd: 35, spe: 50 },
 		abilities: { 0: "Cute Charm", 1: "Normalize", H: "Wonder Skin" },
@@ -5712,7 +5712,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	delcatty: {
 		num: 301,
 		name: "Delcatty",
-		types: ["Normal"],
+		types: ["Normal","Fairy"],
 		genderRatio: { M: 0.25, F: 0.75 },
 		baseStats: { hp: 70, atk: 65, def: 65, spa: 55, spd: 55, spe: 90 },
 		abilities: { 0: "Cute Charm", 1: "Normalize", H: "Wonder Skin" },
@@ -13032,7 +13032,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		baseSpecies: "Goodra",
 		forme: "Hisui",
 		types: ["Steel", "Dragon"],
-		baseStats: { hp: 80, atk: 100, def: 100, spa: 110, spd: 150, spe: 60 },
+		baseStats: { hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80 },
 		abilities: { 0: "Sap Sipper", 1: "Shell Armor", H: "Gooey" },
 		heightm: 1.7,
 		weightkg: 334.1,
