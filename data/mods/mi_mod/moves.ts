@@ -46,6 +46,8 @@ geargrind: {
 		basePower: 0,
 		category: "Status",
 		name: "Escalofrio",
+		desc: "Golpea por la espalda al enemigo y lo congela",
+		shortDesc: "Congela al enemigo",
 		pp: 15,
 		priority: 0,
 		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
