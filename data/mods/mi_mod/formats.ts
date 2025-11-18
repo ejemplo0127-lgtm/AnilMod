@@ -2,7 +2,6 @@ import type { FormatList } from "../../.sim-dist/types";
 import { PokemonSet } from "../../.sim-dist/types";
 
 export const Formats: FormatList = [
-	// Formatos genéricos...
 	{
 		section: "Custom Mods",
 	},
@@ -26,8 +25,34 @@ export const Formats: FormatList = [
 			"Cancel Mod",
 		],
 
-		challengeShow: true, // <--- esto hace que sea visible en el lobby
-		rated: false, // opcional: si quieres combates con ranking
+		// Ejemplo de equipo usando PokemonSet
+		team: [
+			{
+				name: "Pikachu",
+				species: "Pikachu",
+				item: "Light Ball",
+				moves: ["Thunderbolt", "Volt Tackle", "Iron Tail", "Quick Attack"],
+				ability: "Static",
+				level: 50,
+				evs: { hp: 252, atk: 4, spe: 252 },
+				ivs: { spa: 0 },
+				gender: "M",
+			} as PokemonSet,
+			{
+				name: "Charizard",
+				species: "Charizard",
+				item: "Charizardite X",
+				moves: ["Flare Blitz", "Dragon Claw", "Earthquake", "Roost"],
+				ability: "Blaze",
+				level: 50,
+				evs: { atk: 252, spe: 252, hp: 4 },
+				ivs: { spa: 0 },
+				gender: "M",
+			} as PokemonSet,
+		],
+
+		challengeShow: true,
+		rated: false,
 		canCancelMoves: true,
 	},
 ];
