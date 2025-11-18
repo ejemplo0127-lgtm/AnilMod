@@ -74,9 +74,12 @@
     "@types/pg": "^8.6.5",
     "@types/sockjs": "^0.3.33",
     "@types/sodium-native": "^2.3.9",
-    "eslint": "^9.31.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.0.0",
     "mocha": "^11.7.1",
+    "prettier": "^3.6.2",
     "smogon": "^3.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0"
