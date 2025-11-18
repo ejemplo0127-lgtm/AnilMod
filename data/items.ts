@@ -1326,7 +1326,8 @@ export const Items: import("../sim/dex-items").ItemDataTable = {
 		},
 		onModifySecondaries(secondaries) {
 			this.debug("Covert Cloak prevent secondary");
-			return secondaries.filter((effect) => !!effect.self);
+			// prettier-ignore
+			return secondaries.filter(effect => !!effect.self);
 		},
 		num: 1885,
 		gen: 9,
@@ -3619,14 +3620,17 @@ export const Items: import("../sim/dex-items").ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.hp) return;
-			if (pokemon.moveSlots.some((move) => move.pp === 0)) {
+			// prettier-ignore
+			if (pokemon.moveSlots.some(move => move.pp === 0)) {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
 			const moveSlot =
-				pokemon.moveSlots.find((move) => move.pp === 0) ||
-				pokemon.moveSlots.find((move) => move.pp < move.maxpp);
+				// prettier-ignore
+				pokemon.moveSlots.find(move => move.pp === 0) ||
+			// prettier-ignore
+				pokemon.moveSlots.find(move => move.pp < move.maxpp);
 			if (!moveSlot) return;
 			moveSlot.pp += 10;
 			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
