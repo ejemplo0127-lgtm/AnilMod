@@ -3629,7 +3629,7 @@ export const Items: import("../sim/dex-items").ItemDataTable = {
 			const moveSlot =
 				// prettier-ignore
 				pokemon.moveSlots.find(move => move.pp === 0) ||
-			// prettier-ignore
+				// prettier-ignore
 				pokemon.moveSlots.find(move => move.pp < move.maxpp);
 			if (!moveSlot) return;
 			moveSlot.pp += 10;

@@ -23,7 +23,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Espanto",
 		shortDesc: "Baja el At. Esp. del rival en 1 nivel al entrar.",
 		onStart(pokemon) {
-			let target = pokemon.side.foe.active[0];
+			const target = pokemon.side.foe.active[0];
 			if (!target || target.fainted) return;
 			this.boost({ spa: -1 }, target, pokemon, null, true);
 		},
