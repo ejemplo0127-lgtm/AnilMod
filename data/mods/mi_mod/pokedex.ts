@@ -388,7 +388,7 @@ export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
 	miltank: {
 		inherit: true,
 		baseStats: { hp: 95, atk: 90, def: 105, spa: 40, spd: 70, spe: 100 },
-	}, ////////////////////////-->Aqui
+	},
 	mightyena: {
 		inherit: true,
 		baseStats: { hp: 70, atk: 110, def: 70, spa: 60, spd: 60, spe: 90 },
@@ -437,7 +437,7 @@ export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
 	kirlia: {
 		inherit: true,
 		baseStats: { hp: 55, atk: 35, def: 45, spa: 75, spd: 75, spe: 50 },
-	}, ////////////////////////-->Aqui
+	},
 	surskit: {
 		inherit: true,
 		baseStats: { hp: 55, atk: 30, def: 32, spa: 60, spd: 60, spe: 65 },
