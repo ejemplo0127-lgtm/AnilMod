@@ -1,5 +1,5 @@
 import type { FormatList } from "../../.sim-dist/types";
-// import { PokemonSet } from "../../.sim-dist/types";
+import { PokemonSet } from "../../.sim-dist/types";
 
 export const Formats: FormatList = [
 	// Formatos genéricos...
