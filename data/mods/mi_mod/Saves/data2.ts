@@ -14,15 +14,7 @@ metapod: {
 butterfree: {
     inherit: true,
     baseStats: {hp: 60, atk: 45, def: 50, spa: 100, spd: 100, spe: 90},
-    otherFormes: ['Butterfree-Gmax'],
 },
-    butterfreegmax: {
-        inherit: true,
-        baseSpecies: "Butterfree",
-        forme: "Gmax",
-        isGigantamax: true,
-        isNonstandard: null,   // <-- MUY IMPORTANTE: permite usarla
-    },
 weedle: {
     inherit: true,
     baseStats: {hp: 40, atk: 45, def: 30, spa: 20, spd: 20, spe: 50},
@@ -67,10 +59,6 @@ pikachu: {
 raichu: {
     inherit: true,
     baseStats: {hp: 60, atk: 90, def: 55, spa: 90, spd: 80, spe: 100},
-},
-raichualola: {
-    inherit: true,
-    baseStats: {hp: 60, atk: 90, def: 55, spa: 80, spd: 100, spe: 90},
 },
 sandslash: {
     inherit: true,
@@ -253,10 +241,6 @@ seaking: {
 mrmime: {
     inherit: true,
     baseStats: {hp: 50, atk: 45, def: 65, spa: 100, spd: 120, spe: 90},
-},
-mrmimegalar: {
-    inherit: true,
-    baseStats: {hp: 80, atk: 45, def: 85, spa: 110, spd: 120, spe: 90},
 },
 jynx: {
     inherit: true,
@@ -1261,20 +1245,6 @@ types: ["NORMAL", "GROUND"],
 sinistcha: {
 inherit: true,
 types: ["GHOST", "GRASS"],
-},
-flapplemega: {
-    num: 841,
-    name: "Flapple-Mega",
-    baseSpecies: "Flapple",
-    forme: "Mega",
-    types: ["Grass", "Dragon"],
-    baseStats: {hp: 70, atk: 130, def: 95, spa: 115, spd: 90, spe: 125},
-    abilities: {0: "Thick Fat"},
-    heightm: 24,
-    weightkg: 100,
-    mega: true,
-    battleOnly: "Flapple",
-    requiredItem: "Flappletunita",
 },
 };
 

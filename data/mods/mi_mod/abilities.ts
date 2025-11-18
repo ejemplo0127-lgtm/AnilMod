@@ -1,8 +1,67 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	 // --------------------------------------------------------
-  // 🌿 Nueva habilidad personalizada: Piel Herbácea
+  // 🌿 Nuevas Habilidades
   // --------------------------------------------------------
-    realeza: {
+  	illuminate: {
+    name: "illuminate",
+    shortDesc: "Al entrar, baja la Precisión de los rivales en 1 nivel (no afecta si tienen Sustituto).",
+
+		onStart(pokemon) {
+		for (const target of pokemon.side.foe.active) {
+			if (!target || target.fainted) continue;
+
+			// No funciona si el objetivo está detrás de Sustituto
+			if (target.volatiles['substitute']) continue;
+
+			this.boost({accuracy: -1}, target, pokemon, null, true);
+		}
+		},
+	},
+
+    espanto: {
+		name: "Espanto",
+		shortDesc: "Baja el At. Esp. del rival en 1 nivel al entrar.",
+			onStart(pokemon) {
+				let target = pokemon.side.foe.active[0];
+				if (!target || target.fainted) return;
+				this.boost({spa: -1}, target, pokemon, null, true);
+			},
+	},
+ 	podersabio: {
+		name: "Poder Sabio",
+		shortDesc: "Potencia movimientos especiales x1.5 y fija el primer movimiento usado.",
+
+			// Aumenta la potencia de movimientos especiales
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.category === 'Special') {
+				return this.chainModify(1.5);
+					}
+			},
+			// Emula el comportamiento de Choice Specs para bloquear movimientos
+			onStart(pokemon) {
+			// Aplica un efecto tipo choicelock si no lo tiene
+				if (!pokemon.volatiles['choicelock']) {
+				pokemon.addVolatile('choicelock');
+				}
+			},
+			// Evita que el Pokémon seleccione un movimiento distinto
+			onDisableMove(pokemon) {
+				if (!pokemon.volatiles['choicelock']) return;
+				const lockedMove = pokemon.volatiles['choicelock'].move;
+				for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== lockedMove) {
+					pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			// Permite que el efecto se mantenga mientras la habilidad no se pierda
+			onBeforeMove(attacker, defender, move) {
+				if (attacker.volatiles['choicelock']) {
+				attacker.volatiles['choicelock'].move = move.id;
+				}
+				},
+	},
+ 	realeza: {
         name: "Realeza",
         shortDesc: "El usuario obtiene STAB con todos los tipos (50% de potencia a todos sus movimientos).",
         desc: "El usuario recibe un bono del 50% al poder de todos sus ataques, incluso si no coinciden con su tipo. No se acumula con STAB normal.",
@@ -30,39 +89,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
             }
         },
     },
-	 parentalbond: {
-        inherit: true,
-        name: "Parental Bond",
-        shortDesc: "Golpea dos veces; el segundo golpe hace el 50%. El primer golpe conserva efectos.",
+	parentalbond: {
+		inherit: true,
+		name: "Parental Bond",
+		shortDesc: "Golpea dos veces; el segundo golpe hace el 25% y conserva efectos.",
 
-        onPrepareHit(source, target, move) {
-            if (move.multihit || move.flags['charge'] || move.isZ || move.isMax) return;
+		onPrepareHit(source, target, move) {
+			if (move.multihit || move.flags['charge'] || move.isZ || move.isMax) return;
+			move.multihit = 2;
+			this.add('-ability', source, 'Parental Bond');
+		},
 
-            // Fuerza dos golpes siempre
-            move.multihit = 2;
+		onHit(target, source, move) {
+		// Se mantienen efectos en ambos golpes
+		},
 
-            // NO quitamos efectos aquí
-            // para que el primer golpe siga funcionando normal
-
-            this.add('-ability', source, 'Parental Bond');
-        },
-
-        onHit(target, source, move) {
-            // Si es el primer golpe (hit = 1), no hacemos nada → mantiene boosts
-            if (move.hit === 1) return;
-
-            // Si es el segundo golpe → quitar efectos secundarios y propios
-            move.secondaries = null;
-            move.self = null;
-            move.selfBoost = null;
-        },
-
-        onModifyDamage(damage, source, target, move) {
-            if (move.hit > 1) {
-                return this.chainModify(0.5);
-            }
-        },
-    },
+		onModifyDamage(damage, source, target, move) {
+			if (move.hit > 1) {
+			return this.chainModify(0.25);
+		}
+		},
+	},
   	coleoptero: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -107,7 +154,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1004,
 	},	
-pielelectrica: {
+	pielelectrica: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -194,19 +241,19 @@ pielelectrica: {
 	num: -1001,
 	
 },
-albino: {
-	name: "Albino",
-	shortDesc: "Potencia los movimientos de tipo Hielo en un 30%.",
-	desc: "Aumenta el poder de los movimientos de tipo Hielo en un 30%.",
-	
-	onBasePowerPriority: 28,
-	onBasePower(basePower, attacker, defender, move) {
-		if (move.type === 'Ice') {
-			this.debug('Albino boost');
-			return this.chainModify(1.3);
-		}
+	albino: {
+		name: "Albino",
+		shortDesc: "Potencia los movimientos de tipo Hielo en un 30%.",
+		desc: "Aumenta el poder de los movimientos de tipo Hielo en un 30%.",
+		
+		onBasePowerPriority: 28,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Albino boost');
+				return this.chainModify(1.3);
+			}
+		},
+		rating: 3,
+		num: -1002,
 	},
-	rating: 3,
-	num: -1002,
-},
-};
+	};
