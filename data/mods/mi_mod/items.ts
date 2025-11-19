@@ -1,5 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { ModdedPokemonSet } from "./types";
+import type {
+	ModdedAbilityData,
+	ModdedMoveData,
+	ModdedItemData,
+	ModdedPokemonSet,
+	ModdedSpeciesData,
+	ModdedConditionData,
+	ModdedFormatList,
+} from "./types";
 
 export const Items: { [k: string]: ModdedItemData } = {
 	// Pokemon Añil
