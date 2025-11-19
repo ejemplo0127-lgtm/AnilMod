@@ -1,4 +1,5 @@
-import type { ModdedConditionData, ModdedPokemonSet } from "./types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { ModdedPokemonSet } from "./types";
 
 export const Conditions: { [k: string]: ModdedConditionData } = {
 	frz: {
