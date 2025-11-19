@@ -1,4 +1,6 @@
-export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
+import type { ModdedSpeciesData } from "./types";
+
+export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	goodrahisui: {
 		inherit: true,
 		baseStats: { hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80 },

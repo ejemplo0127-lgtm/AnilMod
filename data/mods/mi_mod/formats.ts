@@ -1,6 +1,6 @@
-import type { FormatList, PokemonSet } from "../../.sim-dist/types";
+import type { ModdedPokemonSet, ModdedFormatList } from "./types";
 
-export const Formats: FormatList = [
+export const Formats: ModdedFormatList = [
 	{
 		section: "Custom Mods",
 	},

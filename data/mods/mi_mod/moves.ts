@@ -1,4 +1,6 @@
-export const Moves: { [moveid: string]: ModdedMoveData } = {
+import type { ModdedMoveData, ModdedPokemonSet } from "./types";
+
+export const Moves: { [k: string]: ModdedMoveData } = {
 	twinbeam: {
 		inherit: true,
 		basePower: 50, // antes 40

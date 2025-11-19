@@ -1,4 +1,6 @@
-export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
+import type { ModdedAbilityData, ModdedPokemonSet } from "./types";
+
+export const Abilities: { [k: string]: ModdedAbilityData } = {
 	// --------------------------------------------------------
 	// 🌿 Nuevas Habilidades
 	// --------------------------------------------------------

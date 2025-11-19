@@ -1,5 +1,6 @@
-export const Conditions: import("../../../sim/dex-conditions").ConditionDataTable =
-{
+import type { ModdedConditionData, ModdedPokemonSet } from "./types";
+
+export const Conditions: { [k: string]: ModdedConditionData } = {
 	frz: {
 		inherit: true,
 		onStart(target, source, sourceEffect) {
