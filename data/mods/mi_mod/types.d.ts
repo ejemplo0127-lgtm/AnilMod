@@ -9,10 +9,10 @@ import type {
 	FormatList,
 } from "../../.sim-dist/types";
 
-export interface ModdedAbilityData extends AbilityData {}
-export interface ModdedMoveData extends MoveData {}
-export interface ModdedItemData extends ItemData {}
-export interface ModdedPokemonSet extends PokemonSet {}
-export interface ModdedSpeciesData extends SpeciesData {}
-export interface ModdedConditionData extends ConditionData {}
+export type ModdedAbilityData = AbilityData;
+export type ModdedMoveData = MoveData;
+export type ModdedItemData = ItemData;
+export type ModdedPokemonSet = PokemonSet;
+export type ModdedSpeciesData = SpeciesData;
+export type ModdedConditionData = ConditionData;
 export type ModdedFormatList = FormatList;

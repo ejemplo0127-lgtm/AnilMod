@@ -1,12 +1,4 @@
-import type {
-	ModdedAbilityData,
-	ModdedMoveData,
-	ModdedItemData,
-	ModdedPokemonSet,
-	ModdedSpeciesData,
-	ModdedConditionData,
-	ModdedFormatList,
-} from "./types";
+import type { ModdedItemData } from "./types";
 
 export const Items: { [k: string]: ModdedItemData } = {
 	// Pokemon Añil

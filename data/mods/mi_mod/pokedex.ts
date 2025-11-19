@@ -1,12 +1,4 @@
-import type {
-	ModdedAbilityData,
-	ModdedMoveData,
-	ModdedItemData,
-	ModdedPokemonSet,
-	ModdedSpeciesData,
-	ModdedConditionData,
-	ModdedFormatList,
-} from "./types";
+import type { ModdedSpeciesData } from "./types";
 
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	goodrahisui: {

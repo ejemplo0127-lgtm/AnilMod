@@ -1,12 +1,4 @@
-import type {
-	ModdedAbilityData,
-	ModdedMoveData,
-	ModdedItemData,
-	ModdedPokemonSet,
-	ModdedSpeciesData,
-	ModdedConditionData,
-	ModdedFormatList,
-} from "./types";
+import type { ModdedConditionData } from "./types";
 
 export const Conditions: { [k: string]: ModdedConditionData } = {
 	frz: {
