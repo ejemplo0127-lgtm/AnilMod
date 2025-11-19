@@ -5,8 +5,8 @@ import type {
 	SpeciesData,
 	ConditionData,
 	FormatList,
+	Pokemon,
 } from "../../.sim-dist/types";
-import type { Pokemon } from "../../.sim-dist/types";
 
 /** Tipos extendidos para tu mod */
 export interface ModdedAbilityData extends AbilityData {}
