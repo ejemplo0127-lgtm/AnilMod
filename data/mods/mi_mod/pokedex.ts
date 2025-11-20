@@ -1288,5 +1288,5 @@ export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
 		baseSpecies: "Butterfree",
 		forme: "Gmax",
 		isGigantamax: true,
-		isNonstandard: null, // <-- MUY IMPORTANTE: permite usarla*/
+		isNonstandard: null, // <-- MUY IMPORTANTE: permite usarla */
 };
