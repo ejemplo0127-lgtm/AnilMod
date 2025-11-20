@@ -2003,9 +2003,12 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 			natDexTier: "LC",
 		},
 		delcatty: {
-			isNonstandard: "Past",
-			tier: "Illegal",
+			tier: "PU",
+			doublesTier: "DUU",
 			natDexTier: "RU",
+			/* isNonstandard: "Past",
+			tier: "Illegal",
+			natDexTier: "RU", */
 		},
 		sableye: {
 			tier: "PU",

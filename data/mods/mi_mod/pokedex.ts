@@ -471,8 +471,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 			inherit: true,
 			types: ["Normal", "Fairy"],
 			baseStats: { hp: 90, atk: 95, def: 75, spa: 90, spd: 65, spe: 100 },
-			tier: "LC",
-			isNonstandard: null,
 		},
 		sableye: {
 			inherit: true,

@@ -8,6 +8,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Añil",
 		mod: "mi_mod",
+		teambuilderFormat: "mi_mod",
 		desc: "Pokemon Añil",
 		gameType: "singles",
 		searchShow: true,
