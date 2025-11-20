@@ -86,15 +86,13 @@ export const Abilities: import("../../../sim/dex-abilities").ModdedAbilityDataTa
 			desc: "Si el usuario está en Grassy Terrain, sus ataques hacen 1.3× daño.",
 
 			onBasePower(basePower, attacker, defender, move) {
-				// Solo afecta si el Pokémon que ataca tiene esta habilidad
-				if (attacker.ability !== "silvano") return;
-
-				// Verifica que el campo activo sea Grassy Terrain
-				if (attacker.field.isTerrain("grassyterrain")) {
+				// Verifica si el terreno activo es Grassy Terrain
+				if (attacker.battle.field.isTerrain("grassyterrain")) {
 					return this.chainModify(1.3); // +30% de daño
 				}
 			},
 		},
+
 		parentalbond: {
 			inherit: true,
 			name: "Parental Bond",

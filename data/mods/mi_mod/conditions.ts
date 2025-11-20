@@ -1,7 +1,7 @@
 export const Conditions: import("../../../sim/dex-conditions").ConditionDataTable =
 	{
 		frz: {
-			inherit: true,
+			// inherit: true,
 			onStart(target, source, sourceEffect) {
 				this.add("-status", target, "frz");
 			},

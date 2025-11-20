@@ -1,4 +1,5 @@
-export const Moves: { [moveid: string]: ModdedMoveData } = {
+// export const Moves: { [moveid: string]: ModdedMoveData } = {
+export const Moves: import("../../../sim/dex-moves").ModdedMoveDataTable = {
 	twinbeam: {
 		inherit: true,
 		basePower: 50, // antes 40

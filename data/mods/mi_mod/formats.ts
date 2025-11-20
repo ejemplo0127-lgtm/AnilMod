@@ -27,6 +27,5 @@ export const Formats: FormatList = [
 
 		challengeShow: true, // <--- esto hace que sea visible en el lobby
 		rated: false, // opcional: si quieres combates con ranking
-		canCancelMoves: true,
 	},
 ];
