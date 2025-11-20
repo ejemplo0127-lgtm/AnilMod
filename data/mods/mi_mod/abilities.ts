@@ -1,6 +1,4 @@
-import type { ModdedAbilityData } from "./types";
-
-export const Abilities: { [k: string]: ModdedAbilityData } = {
+export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// --------------------------------------------------------
 	// 🌿 Nuevas Habilidades
 	// --------------------------------------------------------
@@ -25,7 +23,7 @@ export const Abilities: { [k: string]: ModdedAbilityData } = {
 		name: "Espanto",
 		shortDesc: "Baja el At. Esp. del rival en 1 nivel al entrar.",
 		onStart(pokemon) {
-			const target = pokemon.side.foe.active[0];
+			let target = pokemon.side.foe.active[0];
 			if (!target || target.fainted) return;
 			this.boost({ spa: -1 }, target, pokemon, null, true);
 		},

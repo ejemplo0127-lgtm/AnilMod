@@ -1,4 +1,3 @@
-// types.d.ts
 import type {
 	AbilityData,
 	MoveData,
@@ -9,6 +8,7 @@ import type {
 	FormatList,
 } from "../../.sim-dist/types";
 
+// Usamos type alias en lugar de interfaces vacías
 export type ModdedAbilityData = AbilityData;
 export type ModdedMoveData = MoveData;
 export type ModdedItemData = ItemData;

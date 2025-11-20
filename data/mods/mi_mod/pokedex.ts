@@ -1,6 +1,4 @@
-import type { ModdedSpeciesData } from "./types";
-
-export const Pokedex: { [k: string]: ModdedSpeciesData } = {
+export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
 	goodrahisui: {
 		inherit: true,
 		baseStats: { hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80 },
@@ -16,13 +14,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	butterfree: {
 		inherit: true,
 		baseStats: { hp: 60, atk: 45, def: 50, spa: 100, spd: 100, spe: 90 },
-		otherFormes: ["Butterfree-Gmax"],
 	},
 	butterfreegmax: {
 		inherit: true,
 		baseSpecies: "Butterfree",
 		forme: "Gmax",
-		isGigantamax: true,
+		baseStats: { hp: 60, atk: 55, def: 70, spa: 120, spd: 130, spe: 110 },
+		isMega: true,
+		requiredItem: "Butterfreeita",
 		isNonstandard: null, // <-- MUY IMPORTANTE: permite usarla
 	},
 	weedle: {
@@ -1265,18 +1264,29 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		types: ["GHOST", "GRASS"],
 	},
-	flapplemega: {
-		num: 841,
-		name: "Flapple-Mega",
-		baseSpecies: "Flapple",
-		forme: "Mega",
-		types: ["Grass", "Dragon"],
-		baseStats: { hp: 70, atk: 130, def: 95, spa: 115, spd: 90, spe: 125 },
-		abilities: { 0: "Thick Fat" },
-		heightm: 24,
-		weightkg: 100,
-		mega: true,
-		battleOnly: "Flapple",
-		requiredItem: "Flappletunita",
+	flapple: {
+		inherit: true,
+		otherFormes: ["Flapple-Gmax"],
 	},
+	flapplegmax: {
+		inherit: true,
+		baseSpecies: "Flapple",
+		forme: "Gmax",
+		baseStats: { hp: 110, atk: 125, def: 100, spa: 100, spd: 50, spe: 100 },
+		isMega: true,
+		requiredItem: "Flappletunita",
+		isNonstandard: null, // <-- MUY IMPORTANTE: permite usarla
+	},
+	/*
+		butterfree: {
+		inherit: true,
+		//baseStats: { hp: 60, atk: 45, def: 50, spa: 100, spd: 100, spe: 90 },
+		otherFormes: ["Butterfree-Gmax"],
+	},
+	butterfreegmax: {
+		inherit: true,
+		baseSpecies: "Butterfree",
+		forme: "Gmax",
+		isGigantamax: true,
+		isNonstandard: null, // <-- MUY IMPORTANTE: permite usarla*/
 };
